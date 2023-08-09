@@ -4,9 +4,10 @@ metadata:
   name: test-app
   namespace: default
   annotations:
-    argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/image-list: external-api=ghcr.io/szma5a/hoge
     argocd-image-updater.argoproj.io/external-api.update-strategy: latest
+    argocd-image-updater.argoproj.io/git-branch: main:updater-pr-test
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
