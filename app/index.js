@@ -4,7 +4,7 @@ const fastify = require('fastify')({
 
 fastify.get('/', async (request, reply) => {
   reply.type('application/json').code(200)
-  return { hello: 'nyahello!!!' }
+  return { hello: 'nyahello!!!@@@@' }
 })
 
 fastify.listen({ port: 3000 }, (err, address) => {
