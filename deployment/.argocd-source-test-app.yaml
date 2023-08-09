@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - ghcr.io/szma5a/hoge:h-8bd4581b3539b8788b480f2be69a8937bae023af
