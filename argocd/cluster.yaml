@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-cluster-secret-argocd-test
+  namespace: default
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+  annotations:
+    managed-by: argocd.argoproj.io
+type: Opaque
+stringData:
+  name: test-argocd-cluster
+  project: test-project
+  server: https://kubernetes.default.svc

@@ -1,20 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: hoge-app-dev
+  name: test-app
   namespace: default
-  # annotations:
-  #   argocd-image-updater.argoproj.io/write-back-method: argocd
-  #   argocd-image-updater.argoproj.io/image-list: target=asia.gcr.io/hoge/fuga/testt:latest
-  #   argocdimage-updater.argoproj.io/target.update-strategy: digest
-  #   argocd-image-updater.argoproj.io/target.force-update: "true"
-
+  annotations:
+    argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/image-list: external-api=ghcr.io/szma5a/hoge
+    argocd-image-updater.argoproj.io/external-api.update-strategy: latest
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   source:
     repoURL: https://github.com/sZma5a/hoge.git
-    path: ./
+    path: ./deployment
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  project: argocd
+  project: test-project
+  syncPolicy:
+    automated: {}
