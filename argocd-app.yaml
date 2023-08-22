@@ -3,11 +3,6 @@ kind: Application
 metadata:
   name: argocd-app
   namespace: default
-  # annotations:
-  #   argocd-image-updater.argoproj.io/write-back-method: argocd
-  #   argocd-image-updater.argoproj.io/image-list: external-api=ghcr.io/szma5a/hoge/fuga
-  #   argocd-image-updater.argoproj.io/external-api.update-strategy: digest
-
 spec:
   source:
     repoURL: https://github.com/sZma5a/hoge.git
